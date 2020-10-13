@@ -20,11 +20,11 @@ has_many :buys
 | ------------------- | -----------| ---------------------------------|
 | name                | string     | null: false                      |
 | description         | text       | null: false                      |
-| category            | integer    | null: false                      |
-| condition           | integer    | null: false                      |
-| cost_burden_side    | integer    | null: false                      |
-| ship_form           | integer    | null: false                      |
-| days_to_ship        | integer    | null: false                      |
+| category_id         | integer    | null: false                      |
+| condition_id        | integer    | null: false                      |
+| cost_burden_side_id | integer    | null: false                      |
+| ship_form_id        | integer    | null: false                      |
+| days_to_ship_id     | integer    | null: false                      |
 | price               | integer    | null: false                      |
 | user                | references | null: false, foreign_key: true   |
 
@@ -44,19 +44,19 @@ has_one_attached :image
 ## アソシエーション
 belongs_to :user
 belongs_to :product
-has_one :product
+has_one :address
 
 
 ## addressesテーブル
-| Column        | Type       | Options                         |
-| ---------     | -----------| --------------------------------|
-| postal_code   | string     | null: false                     |
-| region        | string     | null: false                     |
-| city          | string     | null: false                     |
-| address       | string     | null: false                     |
-| building_name | string     |                                 |
-| phone_number  | string     | null: false                     |
-| buy           | references | null: false, foreign_key: true  |
+| Column         | Type       | Options                         |
+| ---------------| -----------| --------------------------------|
+| postal_code_id | integer    | null: false                     |
+| region_id      | integer    | null: false                     |
+| city           | string     | null: false                     |
+| address        | string     | null: false                     |
+| building_name  | string     |                                 |
+| phone_number   | string     | null: false                     |
+| buy            | references | null: false, foreign_key: true  |
 
 ## アソシエーション
 belongs_to :buy
