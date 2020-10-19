@@ -12,11 +12,6 @@ class Product < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :description
-    validates :category
-    validates :condition
-    validates :cost_burden_side
-    validates :ship_form
-    validates :days_to_ship
     validates :price
     validates :image
     validates :category_id, :condition_id, :cost_burden_side_id, :ship_form_id, :days_to_ship_id, numericality: { other_than: 1 }
