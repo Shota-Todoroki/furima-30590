@@ -32,25 +32,50 @@ RSpec.describe Product, type: :model do
       @product.valid?
       expect(@product.errors.full_messages).to include("Category can't be blank")
     end
+    it "category_idが1だと登録できない" do
+      @product.category_id = 1
+      @product.valid?
+      expect(@product.errors.full_messages).to include("Category must be other than 1")
+    end
     it "conditionが空だと登録できない" do
       @product.condition_id = ""
       @product.valid?
       expect(@product.errors.full_messages).to include("Condition can't be blank")
+    end
+    it "condition_idが1だと登録できない" do
+      @product.condition_id = 1
+      @product.valid?
+      expect(@product.errors.full_messages).to include("Condition must be other than 1")
     end
     it "cost_burden_sideが空だと登録できない" do
       @product.cost_burden_side_id = ""
       @product.valid?
       expect(@product.errors.full_messages).to include("Cost burden side can't be blank")
     end
+    it "cost_burden_side_idが1だと登録できない" do
+      @product.cost_burden_side_id = 1
+      @product.valid?
+      expect(@product.errors.full_messages).to include("Cost burden side must be other than 1")
+    end
     it "ship_formが空だと登録できない" do
       @product.ship_form_id = ""
       @product.valid?
       expect(@product.errors.full_messages).to include("Ship form can't be blank")
     end
+    it "ship_form_idが1だと登録できない" do
+      @product.ship_form_id = 1
+      @product.valid?
+      expect(@product.errors.full_messages).to include("Ship form must be other than 1")
+    end
     it "days_to_shipが空だと登録できない" do
       @product.days_to_ship_id = ""
       @product.valid?
       expect(@product.errors.full_messages).to include("Days to ship can't be blank")
+    end
+    it "days_to_ship_idが1だと登録できない" do
+      @product.days_to_ship_id = 1
+      @product.valid?
+      expect(@product.errors.full_messages).to include("Days to ship must be other than 1")
     end
     it "priceが空だと登録できない" do
       @product.price = ""
