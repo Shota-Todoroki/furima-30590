@@ -34,7 +34,7 @@ RSpec.describe UserBuy, type: :model do
       @user_buy.valid?
       expect(@user_buy.errors.full_messages).to include("Address can't be blank")
     end
-    it "携帯電話番号が空だと保存できない" do
+    it "電話番号が空だと保存できない" do
       @user_buy.phone_number = ""
       @user_buy.valid?
       expect(@user_buy.errors.full_messages).to include("Phone number can't be blank")
