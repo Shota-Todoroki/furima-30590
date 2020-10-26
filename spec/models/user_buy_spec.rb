@@ -19,8 +19,13 @@ RSpec.describe UserBuy, type: :model do
       expect(@user_buy.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
     end
 
-    it "住所の都道府県名が空だと保存できない" do
+    it "都道府県名が空だと保存できない" do
       @user_buy.region_id = ""
+      @user_buy.valid?
+      expect(@user_buy.errors.full_messages).to include("Region can't be blank")
+    end
+    it "都道府県名のIDが1だと登録できない" do
+      @user_buy.region_id = 1
       @user_buy.valid?
       expect(@user_buy.errors.full_messages).to include("Region can't be blank")
     end
@@ -40,7 +45,13 @@ RSpec.describe UserBuy, type: :model do
       expect(@user_buy.errors.full_messages).to include("Phone number can't be blank")
     end
     it "電話番号にハイフンがあると保存できない" do
-      @user_buy.phone_number = "78-3385"
+      @user_buy.phone_number = "080[-]0987[-]6543"
+      @user_buy.valid?
+      binding.pry
+      expect(@user_buy.errors.full_messages).to include("Phone number is invalid")
+    end
+    it "電話番号が12桁以上だと保存できない" do
+      @user_buy.phone_number = "080[-]09871[-]65431"
       @user_buy.valid?
       expect(@user_buy.errors.full_messages).to include("Phone number is invalid")
     end
