@@ -22,9 +22,8 @@ class BuysController < ApplicationController
 
   def move_to_root_path
     @product = Product.find(params[:product_id])
-      if @product.user_id == current_user.id || @product.buy.presence#ルーティングでネストしてbuysはproductsの子要素なので、buysテーブルを出力させたい時はこのような記述になる。
-        redirect_to root_path
-      #end
+    if @product.user_id == current_user.id || @product.buy.presence#ルーティングでネストしてbuysはproductsの子要素なので、buysテーブルを出力させたい時はこのような記述になる。
+      redirect_to root_path  
     end
   end
 

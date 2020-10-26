@@ -1,5 +1,5 @@
 const pay = () => {
-  Payjp.setPublicKey("pk_test_b660b548927e02f604f43f58")
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
     e.preventDefault(); //この記述が無いと、このJavascript内の処理が行われる前に、HTMLの記述の処理が行われてしまい、トークンが発行されず、クレジット情報が剥き出しのまま、サーバーサイドに送られる。
