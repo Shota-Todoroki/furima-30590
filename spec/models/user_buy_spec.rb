@@ -47,7 +47,6 @@ RSpec.describe UserBuy, type: :model do
     it "電話番号にハイフンがあると保存できない" do
       @user_buy.phone_number = "080[-]0987[-]6543"
       @user_buy.valid?
-      binding.pry
       expect(@user_buy.errors.full_messages).to include("Phone number is invalid")
     end
     it "電話番号が12桁以上だと保存できない" do
