@@ -5,9 +5,14 @@ RSpec.describe UserBuy, type: :model do
     before do
       @user_buy = FactoryBot.build(:user_buy)
     end
-    it "全ての値が正しく入力されていれば保存できること" do
+    it "全ての値が正しく入力されていれば保存することができる" do
       expect(@user_buy).to be_valid
     end
+    it "建物の名前が空でも保存することができる" do
+      @user_buy.building_name = ""
+      expect(@user_buy).to be_valid
+    end
+
     it "郵便番号が空だと保存できない" do
       @user_buy.postal_code = ""
       @user_buy.valid?

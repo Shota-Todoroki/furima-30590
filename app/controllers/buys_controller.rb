@@ -1,13 +1,13 @@
 class BuysController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   before_action :move_to_root_path, only: [:index]
-  before_action :set_buy, only: [:index]
+  before_action :set_buy, only: [:index, :create]
 
   def index 
+    @user_buy = UserBuy.new
   end
   
   def create
-    @product = Product.find(params[:product_id])
     @user_buy = UserBuy.new(buy_params)
     if @user_buy.valid?
       pay_product
@@ -29,7 +29,6 @@ class BuysController < ApplicationController
   end
 
   def set_buy
-    @user_buy = UserBuy.new
     @product = Product.find(params[:product_id])
   end
 
