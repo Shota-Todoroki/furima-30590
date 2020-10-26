@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :ship_form
   belongs_to_active_hash :days_to_ship
   belongs_to :user
-  has_one :order
+  has_one :buy
   has_one_attached :image
 
   with_options presence: true do

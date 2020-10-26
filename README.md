@@ -1,5 +1,5 @@
 ## users テーブル
-| Column        | Type   | Options     |
+| Column              | Type   | Options     |
 | --------------------| ------ | ----------  |
 | email               | string | null: false |
 | password            | string | null: false |
@@ -50,7 +50,7 @@ has_one :address
 ## addressesテーブル
 | Column         | Type       | Options                         |
 | ---------------| -----------| --------------------------------|
-| postal_code    | string    | null: false                     |
+| postal_code    | string     | null: false                     |
 | region_id      | integer    | null: false                     |
 | city           | string     | null: false                     |
 | address        | string     | null: false                     |
